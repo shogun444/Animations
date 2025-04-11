@@ -1,10 +1,31 @@
-import { easeInOut } from "motion";
+import { easeInOut, stagger } from "motion";
 import * as  motion from "motion/react-client";
 
 
 
 
 export default function Home() {
+
+
+
+const childVarient ={
+  open : {opacity : 1, x : 0}
+ ,
+  close : {
+    opacity : 0,
+    transition : {staggerChildren :0.03, staggerDirection : -200} 
+  }
+}
+const parentvarient={
+  open : {
+    opacity : 1,
+    transition : {
+      staggerChildren : 0.07 ,delayChildren : 0.2
+    }
+  },
+  close : {opacity :0,x:-10}
+}
+
 
   const Images = [
     {
@@ -89,6 +110,18 @@ const hoverAnimations = {
     
 
 </div>
+ <h1 className="text-white text-lg mt-4">Stagger Animation</h1>
+
+<motion.div initial='close' animate='open' variants={parentvarient} className="flex gap-2">
+
+{[...Array(5)].map((_,index)=>(<motion.div key={index}
+
+variants={childVarient}
+className="p-4 rounded-full bg-amber-300">
+
+</motion.div>))}
+</motion.div>
+
 
 
 </div>
