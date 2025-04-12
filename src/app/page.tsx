@@ -1,10 +1,57 @@
+'use client'
+
 import { easeInOut, stagger } from "motion";
 import * as  motion from "motion/react-client";
+import { useState } from "react";
 
 
 
 
 export default function Home() {
+
+
+const [open,setOpen] = useState(false)
+const Image =[{
+  src : '/1.jpg'
+},{
+  src : '/2.jpg'
+},{
+  src : '/3.jpg'
+},{
+  src : '/4.jpg'
+},{
+  src : '/5.jpg'
+}]
+
+
+const ImageChild = {
+  open : {
+    opacity : 1,
+
+  },
+  close : {
+    opacity : 0,
+    
+  }
+}
+
+
+const parentImage ={
+  open : {
+    x : 0,
+    opacity :1,
+    transition : {
+      staggerChildren : 0.5, delayChildren : 0.04
+    }
+  },
+  close : {
+    x : -50,
+    opacity : 0,
+    transition : {
+      staggerChildren : 0.04,staggerDirection : -100
+    }
+  }
+}
 
 
 
