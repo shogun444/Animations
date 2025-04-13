@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
-body {
-  background-color: #101010;
 
-}
 
 .box{
   width: 100px;
